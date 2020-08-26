@@ -1,25 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
-    <meta name="theme-color" content="#000000" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="format-detection" content="telephone=no" />
-    <link rel="apple-touch-icon" href="./hyf.png" />
-    <link rel="shortcut icon" type="image/png" href="./hyf.png" />
-    <title>HackYourRepo</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto:400,700"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body>
-    <script src="./script.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="format-detection" content="telephone=no" />
+  <link rel="apple-touch-icon" href="./hyf.png" />
+  <link rel="shortcut icon" type="image/png" href="./hyf.png" />
+  <title>HackYourRepo</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <main>
+    <section id="title" class="container">
+      <h2>HYF Repositories</h2>
+      <select id="selection" placeholder="select">
+        <option value="0" disabled selected>Choose an Option</option>
+      </select>
+    </section>
+    <div class="main container">
+      <section id="info" class="card">
+        <table>
+          <tr>
+            <td>Name :</td>
+            <td id="repo"></td>
+          </tr>
+          <tr>
+            <td>Description: </td>
+            <td id="desc"></td>
+
+          </tr>
+          <tr>
+            <td>Forks:</td>
+            <td id="fork"></td>
+
+          </tr>
+          <tr>
+            <td>Updated:</td>
+            <td id="update"></td>
+
+          </tr>
+        </table>
+      </section>
+      <section id="list">
+        <p class="card">Contributors</p>
+        <!-- <div class="person card">
+          <img src="https://avatars0.githubusercontent.com/u/6762913?v=4" width="50px">
+          <a href="">someone</a>
+          <div class="badge">32</div>
+        </div> -->
+      </section>
+    </div>
+  </main>
+  <footer class="footer">HYF Repositories</footer>
+
+
+  <script src="./script.js"></script>
+</body>
+
 </html>
