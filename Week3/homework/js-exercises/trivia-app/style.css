@@ -1,0 +1,38 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h1 {
+  padding-left: 2rem;
+}
+p {
+  font-size: 1.5rem;
+  padding-left: 2rem;
+}
+
+li {
+  list-style: none;
+  background-color: #ebebeb;
+  max-width: 70%;
+  font-size: 1.3rem;
+  padding: 0.4rem;
+}
+
+li:hover {
+  background-color: #c3c3c3;
+  cursor: pointer;
+}
+li p {
+  background-color: white;
+}
+h2 {
+  color: red;
+}
+::selection {
+  color: none;
+  background: none;
+}
+/* For Mozilla Firefox */
+::-moz-selection {
+  color: none;
+  background: none;
+}
