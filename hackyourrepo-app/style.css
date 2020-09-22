@@ -91,6 +91,33 @@ p {
 td:nth-child(2) {
   padding-left: 2vw;
 }
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.button {
+  width: 2rem;
+  height: 2rem;
+  appearance: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: #7cbdd6;
+  margin: 0.1rem;
+  transition: 0.4s;
+  color: #fff;
+  text-shadow: 0, 0, 0, 0rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0, 0, 0, 0rem rgba(0, 0, 0, 0.2);
+}
+.button:hover {
+  background-color: #4c1caa;
+}
+.button.active {
+  background-color: #4c1caa;
+  box-shadow: inset 0, 0, 0, 0rem rgba(0, 0, 0, 0.2);
+}
 
 @media (max-width: 400px) {
   .main {
