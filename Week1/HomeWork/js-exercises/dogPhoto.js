@@ -14,7 +14,10 @@
 const but1 = document.getElementById('but-1');
 const but2 = document.getElementById('but-2');
 const ul = document.querySelector('ul');
-const li = document.createElement('li');
+ul.style.display = 'flex';
+ul.style.flexDirection = 'row';
+ul.style.flexWrap = 'wrap';
+
 but1.addEventListener('click', makeHttpRequestWithXMLHttpRequest);
 but2.addEventListener('click', makeHttpRequestWithAxios);
 
@@ -22,13 +25,17 @@ function makeHttpRequestWithXMLHttpRequest() {
   const xhr = new XMLHttpRequest();
   const url = ' https://dog.ceo/api/breeds/image/random';
   xhr.open('GET', url);
-  xhr.onload = function () {
+  xhr.onload = function() {
     if (xhr.status === 200) {
-      li.innerHTML = `<img src=${JSON.parse(xhr.responseText).message}>`;
+      const li = document.createElement('li');
+      li.style.maxWidth = '45%';
+      li.innerHTML = `<img src=${
+        JSON.parse(xhr.responseText).message
+      } width=100% > `;
       ul.appendChild(li);
     }
   };
-  xhr.onerror = function () {
+  xhr.onerror = function() {
     console.log('request error');
   };
   xhr.send();
@@ -38,9 +45,12 @@ function makeHttpRequestWithXMLHttpRequest() {
 function makeHttpRequestWithAxios() {
   axios
     .get('https://dog.ceo/api/breeds/image/random')
-    .then((res) => {
-      li.innerHTML = `<img src=${res.data.message}>`;
+    .then(res => {
+      const li = document.createElement('li');
+      li.style.maxWidth = '45%';
+
+      li.innerHTML = `<img src=${res.data.message} width=100% >`;
       ul.appendChild(li);
     })
-    .catch((err) => console.log(err));
+    .catch(err => console.log(err));
 }
