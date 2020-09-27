@@ -4,7 +4,7 @@
 
 // And they lived happily ever after!
 
-class Adel {
+class Horse {
   constructor(name, age, type, job, favorits, happy, color) {
     this.name = name;
     this.age = age;
@@ -15,7 +15,7 @@ class Adel {
     this.color = color;
   }
 }
-class Abdulkareem extends Adel {
+class Human extends Horse {
   constructor(
     name,
     age,
@@ -33,7 +33,7 @@ class Abdulkareem extends Adel {
     this.children = children;
   }
 }
-const AbdulkareemObject = new Abdulkareem(
+const AbdulkareemObject = new Human(
   'Abdulkareem',
   35,
   'man',
@@ -44,7 +44,7 @@ const AbdulkareemObject = new Abdulkareem(
   { eat: 'dates', smoke: 'water pipe' },
   true,
 );
-const AdelObject = new Adel(
+const AdelObject = new Horse(
   'Adel',
   15,
   'horse',

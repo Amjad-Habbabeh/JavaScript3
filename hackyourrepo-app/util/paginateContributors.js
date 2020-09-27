@@ -1,9 +1,11 @@
+// this function will check an array it has more than the certin numbers of element (raw_per_page) the function will slice the array to show in the wraper just that certin number of elements...and depending on the array length and (raw_per_page) the function will count the needed pages and set that in variable(page_count).. and when the page_count more than one it add the paginations buttons
+
 function paginateContributors(arr, wrapper, raw_per_page, page) {
   page--;
-  let start = raw_per_page * page;
-  let end = start + raw_per_page;
-  let paginatedItems = arr.slice(start, end);
-  let page_count = Math.ceil(arr.length / raw_per_page);
+  const start = raw_per_page * page;
+  const end = start + raw_per_page;
+  const paginatedItems = arr.slice(start, end);
+  const page_count = Math.ceil(arr.length / raw_per_page);
 
   for (item of paginatedItems) {
     const div3 = creatElementAndAppend(wrapper, 'div', {
@@ -62,11 +64,5 @@ function paginateContributors(arr, wrapper, raw_per_page, page) {
       console.log('err');
       console.log(but_bar.lastChild.innerText);
     });
-
-    // buttons.addEventListener('click', () => {
-    //   // current_page = button.innerText;
-    //   // showDetails();;
-    //   console.log(button);
-    // });
   }
 }
