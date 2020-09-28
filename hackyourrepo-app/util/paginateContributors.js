@@ -43,7 +43,7 @@ function paginateContributors(arr, wrapper, raw_per_page, page) {
     let buttons = document.querySelectorAll('.button');
     buttons.forEach(but => {
       but.addEventListener('click', () => {
-        current_page = but.innerText;
+        current_page = Number(but.innerText);
         showDetails(resultArray);
         but.classList.add('active');
       });
@@ -57,12 +57,24 @@ function paginateContributors(arr, wrapper, raw_per_page, page) {
     previous.innerText = '<=';
     but_bar.insertBefore(previous, but_bar.firstChild);
     but_bar.insertBefore(next, but_bar.lastChild.nextSibling);
-    next.addEventListener('click', current_page => {
-      if (current_page !== but_bar.lastChild.innerText) {
-        current_page + 1;
+
+    next.addEventListener('click', () => {
+      if (
+        current_page !== parseInt(but_bar.lastChild.previousSibling.innerText)
+      ) {
+        current_page++;
+        showDetails(resultArray);
+      } else {
+        next.classList.add('disactive');
       }
-      console.log('err');
-      console.log(but_bar.lastChild.innerText);
+    });
+    previous.addEventListener('click', () => {
+      if (current_page !== parseInt(but_bar.firstChild.nextSibling.innerText)) {
+        current_page--;
+        showDetails(resultArray);
+      } else {
+        previous.classList.add('disactive');
+      }
     });
   }
 }

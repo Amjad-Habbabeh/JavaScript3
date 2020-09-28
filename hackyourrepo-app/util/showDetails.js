@@ -9,7 +9,7 @@ function showDetails(res) {
   let div2 = document.getElementById('list');
   const selector = document.getElementById('selection');
 
-  //--------------------if there are contributors clear the section :---------
+  //---------this function down to prevent adding contributors to the dom before clearing the section from the previous contributors-----------if there are contributors clear the section :---------
 
   const remove = el => el.forEach(item => item.remove());
 
@@ -26,17 +26,18 @@ function showDetails(res) {
       fork.innerText = el.forks;
       update.innerText = el.updated;
 
-      fetch(el.contributors)
-        .then(res => res.json())
-        .then(data => {
+      // this function (show)will fetch async the url for contributors from the object in  array that hold the data  then assign the result to array of contributors and use the pagunation function on this array
+      const show = async () => {
+        try {
+          const res = await fetch(el.contributors);
+          const data = await res.json();
+
           contributorsArray = data;
           // console.log(data);
 
           paginateContributors(contributorsArray, div2, raws, current_page);
           return contributorsArray;
-        })
-        .catch(err => {
-          console.log(err);
+        } catch (err) {
           const errorDiv = creatElementAndAppend(main, 'div', {
             class: 'error container ',
             text: 'Network request failed',
@@ -45,7 +46,9 @@ function showDetails(res) {
           const erro = document.querySelector('.error');
           erro.style.display = 'flex';
           setTimeout(() => erro.parentNode.removeChild(erro), 2000);
-        });
+        }
+      };
+      show();
     }
   }
 }

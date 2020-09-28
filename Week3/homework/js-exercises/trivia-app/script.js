@@ -15,6 +15,8 @@ async function fetchQuestionsRandomly() {
   try {
     const res1 = await fetch(url);
     const data = await res1.json();
+
+    // append the question to the dom
     data.results.forEach(element => {
       const li = document.createElement('li');
       li.innerText = decodeHtml(element.question);
@@ -38,6 +40,8 @@ async function fetchQuestionsRandomly() {
   }
 }
 fetchQuestionsRandomly();
+
+// decode callback function
 
 function decodeHtml(html) {
   var txt = document.createElement('textarea');

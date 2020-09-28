@@ -1,3 +1,5 @@
+// this function fetch url and map thrugh the data and return an array of objects ..every object have only the properties that needed in the project
+
 async function populateOptions(url) {
   try {
     const response = await fetch(url);
@@ -14,6 +16,7 @@ async function populateOptions(url) {
     });
     return arr1;
   } catch (err) {
+    // catch the error and display it in the dom for two seconds
     console.log(err);
     const main = document.querySelector('main');
     const section2 = document.querySelector('.main');
@@ -26,6 +29,4 @@ async function populateOptions(url) {
     erro.style.display = 'flex';
     setTimeout(() => erro.parentNode.removeChild(erro), 2000);
   }
-
-  // return arr;
 }
